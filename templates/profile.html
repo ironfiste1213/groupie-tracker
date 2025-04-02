@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Name }} - Artist Profile</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/profile.css">
+</head>
+<body>
+    <div class="profile-container">
+        <!-- Navigation -->
+        <nav class="profile-nav">
+            <a href="/" class="nav-home">Home</a>
+            <a href="#" class="nav-back">Back to Artists</a>
+        </nav>
+
+        <!-- Artist Hero Section -->
+        <section class="artist-hero">
+            <div class="artist-image">
+                <img src="{{ .Image }}" alt="{{ .Name }} Profile Image" class="artist-portrait">
+            </div>
+            
+            <div class="artist-basic-info">
+                <h1 class="artist-name">{{ .Name }}</h1>
+                
+                <div class="artist-details">
+                    <p><strong>Origin:</strong> {{ .CreationDate }}</p>
+                    <p><strong>Genre:</strong> {{ .FirstAlbum }}</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Members Section -->
+        <section class="artist-members">
+            <h2>Band Members</h2>
+            <div class="members-grid">
+                {{ range .Members }}
+                <div class="member-card">
+                    <div class="member-name">{{ . }}</div>
+                </div>
+                {{ end }}
+            </div>
+        </section>
+
+        <!-- Concert Information -->
+        <section class="concert-info">
+            <h2>Upcoming Concerts</h2>
+            
+            {{ if .Locations }}
+            <div class="concerts-list">
+                {{ range .Locations }}
+                <div class="concert-card">
+                    <div class="concert-location">
+                        <h3>{{ .City }}, {{ .Country }}</h3>
+                        <div class="concert-dates">
+                            {{ range .Dates }}
+                            <span class="concert-date">{{ . }}</span>
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+            {{ else }}
+            <p class="no-concerts">No upcoming concerts scheduled.</p>
+            {{ end }}
+        </section>
+
+        <!-- Additional Artist Information -->
+        <section class="artist-additional-info">
+            <h2>About {{ .Name }}</h2>
+            <div class="artist-description">
+                <p>{{ .Description }}</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="profile-footer">
+        <p>&copy; {{ .Name }} Tracker - All Rights Reserved</p>
+    </footer>
+
+    <script src="/static/js/profile.js"></script>
+</body>
+</html>
