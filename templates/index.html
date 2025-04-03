@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Groupie Tracker</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-</head>
-<body>
-    <header>
-        <h1>Groupie Tracker</h1>
-    </header>
-    
-    <main>
-        <section class="artists-grid">
-            {{range .}}
-            
-            <div class="artist-card">
-              
-                <img src="{{.Image}}" alt="{{.Name}}">
-                <h2>{{.Name}}</h2>
-                <p>Created: {{.CreationDate}}</p>
-                <p>Members: {{range .Members}}{{.}}, {{end}}</p>
-            
-            </div>
-     
-            {{end}}
-        </section>
-    </main>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animate on scroll</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+
+  <body>
+    <div class="container back">
+      <h1>Groupe tracker API</h1>
+    </div>
+    <div class="view">
+      {{range .}}
+
+      <div class="block">
+        <img src="{{.Image}}" alt="{{.Name}}" class="image" />
+        <div class="content">
+          <div class="ss">
+            <h2 class="text_style">{{.Name}}</h2>
+          </div>
+          <div class="ss">
+            <span class="status">Creation Date</span>
+            <p>{{.CreationDate}}</p>
+          </div>
+          <div class="ss">
+            <span class="status">First Album</span>
+            <p>{{.FirstAlbum}}</p>
+          </div>
+        </div>
+        <a href="/artist/{{.ID}}" class="button button_style">
+          <button type="submit" class="button_style">Learn more</button>
+        </a>
+      </div>
+      {{end}}
+    </div>
+  </body>
 </html>

@@ -1,10 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"text/template"
-
+	"mimo/handlers"
 	"mimo/services"
 )
 
@@ -15,10 +16,10 @@ func main() {
 
 	// Home page handler
 	http.HandleFunc("/", homeHandler)
-
+	http.HandleFunc("/artist/",handlers.ArtistProfileHandler)
 	// Start the server
-	log.Println("Server starting on :8080")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Println("Server starting on :8060")
+	log.Fatal(http.ListenAndServe(":8060", nil))
 }
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
@@ -41,10 +42,11 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Failed to parse template", http.StatusInternalServerError)
 		return
 	}
-
+	// fmt.Printf("%q\n", artists)
 	// Execute the template with artists data
 	err = tmpl.Execute(w, artists)
 	if err != nil {
+		fmt.Println("5")
 		http.Error(w, "Failed to render template", http.StatusInternalServerError)
 		return
 	}
