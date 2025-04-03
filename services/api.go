@@ -20,20 +20,17 @@ const (
 func FetchArtists() (models.Artists, error) {
 	resp, err := http.Get(artistsURL)
 	if err != nil {
-		fmt.Println("1")
 		return nil, fmt.Errorf("error fetching artists: %v", err)
 	}
 	defer resp.Body.Close()
 
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
-		fmt.Println("2")
 		return nil, fmt.Errorf("error reading artists response: %v", err)
 	}
 
 	var artists models.Artists
 	if err := json.Unmarshal(body, &artists); err != nil {
-		fmt.Println("3")
 		return nil, fmt.Errorf("error unmarshaling artists: %v", err)
 	}
 
@@ -43,21 +40,18 @@ func FetchArtists() (models.Artists, error) {
 func FetchRelationd() (models.Relations, error) {
 	resp, err := http.Get(relationsURL)
 	if err != nil {
-		fmt.Println("1")
-		return nil, fmt.Errorf("error fetching artists: %v", err)
+		return models.Relations{}, fmt.Errorf("error fetching artists: %v", err)
 	}
 	defer resp.Body.Close()
 
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
-		fmt.Println("2")
-		return nil, fmt.Errorf("error reading artists response: %v", err)
+		return models.Relations{}, fmt.Errorf("error reading artists response: %v", err)
 	}
 
 	var relations models.Relations
 	if err := json.Unmarshal(body, &relations); err != nil {
-		fmt.Println("3")
-		return nil, fmt.Errorf("error unmarshaling artists: %v", err)
+		return models.Relations{}, fmt.Errorf("error unmarshaling artists: %v", err)
 	}
 
 	return relations, nil

@@ -22,7 +22,7 @@
   }
   
   .back {
-    background-image: url("chris-zhang-uGh-hHVPRYI-unsplash.jpg");
+    background-image: url("/static/image/chris-zhang-uGh-hHVPRYI-unsplash.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

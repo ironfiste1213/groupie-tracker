@@ -6,4 +6,6 @@ type Relation struct {
 	DatesLocations map[string][]string `json:"datesLocations"`
 }
 
-type Relations []Relation
+type Relations struct{
+	Index []Relation `json:"index"`
+}

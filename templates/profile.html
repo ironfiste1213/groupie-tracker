@@ -3,46 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ .Name }} - Artist Profile</title>
+    <title>{{ .Artist.Name }} - Artist Profile</title>
     <link rel="stylesheet" href="/static/css/style.css" />
     <link rel="stylesheet" href="/static/css/profile.css" />
   </head>
   <body>
     <a href="/">
     <label class="toggle-label">
-      <img src="/static/css/icons8-x-64.png" alt="" width="28px"  />
+      <img src="/static/image/icons8-x-64.png" alt="Close button" width="28px"  />
       Close
     </label>
   </a>
     <div class="output">
       <div class="output_container glass">
         <div class="output_title">
-          <h2>{{ .Name }}</h2>
+          <h2>{{ .Artist.Name }}</h2>
         </div>
         <div class="about">
           <div class="output_image">
-            <img src="{{ .Image }}" alt="{{ .Name }}" class="img" />
+            <img src="{{ .Artist.Image }}" alt="{{ .Artist.Name }}" class="img" />
           </div>
           <div class="output_content">
             <div class="output_content_block">
               <span>Members</span>
-              {{ range .Members }}
+              {{ range .Artist.Members }}
               <p>👤 {{.}}</p>
               {{end}}
             </div>
             <div class="output_content_block">
               <span>Creation Date</span>
-              <p>📅 {{ .CreationDate }}</p>
+              <p>📅 {{ .Artist.CreationDate }}</p>
             </div>
             <div class="output_content_block">
               <span>First Album</span>
-              <p>📅 {{ .FirstAlbum }}</p>
+              <p>📅 {{ .Artist.FirstAlbum }}</p>
             </div>
             <div class="output_lists">
               <div class="output_content_block style">
                 <span>Relations:</span>
                 <ul>
-                  {{ range $key, $value := . }}
+                  {{ range $key, $value := .Relation.DatesLocations }}
                   <li>
                     🔗 {{ $key }}
                     <ul>
