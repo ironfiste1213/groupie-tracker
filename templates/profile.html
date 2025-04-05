@@ -9,37 +9,46 @@
   </head>
   <body>
     <a href="/">
-    <label class="toggle-label">
-      <img src="/static/image/icons8-x-64.png" alt="Close button" width="28px"  />
-      Close
-    </label>
-  </a>
-    <div class="output">
-      <div class="output_container glass">
-        <div class="output_title">
+      <label class="close-button">
+        <img
+          src="/static/image/icons8-x-64.png"
+          alt="Close button"
+          width="28px"
+          class="icon"
+        />
+        Close
+      </label>
+    </a>
+    <div class="artist-profile">
+      <div class="profile-card glass-effect">
+        <div class="artist-header">
           <h2>{{ .Artist.Name }}</h2>
         </div>
-        <div class="about">
-          <div class="output_image">
-            <img src="{{ .Artist.Image }}" alt="{{ .Artist.Name }}" class="img" />
+        <div class="artist-details-container">
+          <div class="artist-image-box">
+            <img
+              src="{{ .Artist.Image }}"
+              alt="{{ .Artist.Name }}"
+              class="artist-image"
+            />
           </div>
-          <div class="output_content">
-            <div class="output_content_block">
+          <div class="artist-info">
+            <div class="info-section">
               <span>Members</span>
               {{ range .Artist.Members }}
               <p>👤 {{.}}</p>
               {{end}}
             </div>
-            <div class="output_content_block">
+            <div class="info-section">
               <span>Creation Date</span>
               <p>📅 {{ .Artist.CreationDate }}</p>
             </div>
-            <div class="output_content_block">
+            <div class="info-section">
               <span>First Album</span>
               <p>📅 {{ .Artist.FirstAlbum }}</p>
             </div>
-            <div class="output_lists">
-              <div class="output_content_block style">
+            <div class="relations-wrapper">
+              <div class="info-section relations-list">
                 <span>Relations:</span>
                 <ul>
                   {{ range $key, $value := .Relation.DatesLocations }}

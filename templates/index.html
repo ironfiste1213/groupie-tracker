@@ -7,30 +7,29 @@
     <link rel="stylesheet" href="/static/css/style.css" />
   </head>
 
-  <body>
-    <div class="container back">
+  <b<div class="header-container page-background">
       <h1>Groupe tracker API</h1>
     </div>
-    <div class="view">
+    <div class="artist-list">
       {{range .}}
 
-      <div class="block">
-        <img src="{{.Image}}" alt="{{.Name}}" class="image" />
-        <div class="content">
-          <div class="ss">
-            <h2 class="text_style">{{.Name}}</h2>
+      <div class="artist-card">
+        <img src="{{.Image}}" alt="{{.Name}}" class="artist-image" />
+        <div class="artist-details">
+          <div class="detail-section">
+            <h2 class="artist-name">{{.Name}}</h2>
           </div>
-          <div class="ss">
-            <span class="status">Creation Date</span>
+          <div class="detail-section">
+            <span class="detail-label">Creation Date</span>
             <p>{{.CreationDate}}</p>
           </div>
-          <div class="ss">
-            <span class="status">First Album</span>
+          <div class="detail-section">
+            <span class="detail-label">First Album</span>
             <p>{{.FirstAlbum}}</p>
           </div>
         </div>
-        <a href="/artist/{{.ID}}" class="button button_style">
-          <button type="submit" class="button_style">Learn more</button>
+        <a href="/artist/{{.ID}}" class="button button-style">
+          <button type="submit" class="button-style">Learn more</button>
         </a>
       </div>
       {{end}}

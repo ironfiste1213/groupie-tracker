@@ -1,4 +1,13 @@
-.output {
+/* Reset default spacing and set box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========== General Layout ========== */
+
+.artist-profile {
   width: 100%;
   padding: 100px 0;
   display: flex;
@@ -6,7 +15,8 @@
   align-items: center;
 }
 
-.output_container {
+/* Container for the profile card */
+.profile-card {
   background-color: white;
   color: rgb(236, 255, 239);
   width: 90vw;
@@ -15,30 +25,37 @@
   flex-wrap: wrap;
 }
 
-.output_title {
+/* ========== Header ========== */
+
+.artist-header {
   width: 100%;
   font-size: 2rem;
   margin: 3vw;
 }
 
-.output_image {
+/* ========== Artist Image ========== */
+
+.artist-image-box {
   max-height: 280px;
   margin-right: 20px;
   overflow: hidden;
   border: 0.5mm solid black;
   border-radius: 10px;
+  /* Shadow for card depth */
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+              rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+              rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
-.output_image img {
+.artist-image-box img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Ensures image fills box without distortion */
 }
 
-.about {
+/* ========== Artist Details ========== */
+
+.artist-details-container {
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -46,7 +63,7 @@
   padding-left: 50px;
 }
 
-.output_content {
+.artist-info {
   width: 100%;
   padding: 10px;
   margin-bottom: 50px;
@@ -55,30 +72,35 @@
   justify-content: space-between;
   border: 0.5mm solid black;
   border-radius: 10px;
+  /* Subtle glowing shadow */
   box-shadow: rgba(255, 255, 255, 0.25) 0px 50px 100px -20px,
-    rgba(248, 248, 248, 0.3) 0px 30px 40px -30px,
-    rgba(255, 255, 255, 0.35) 0px -2px 6px 0px inset;
+              rgba(248, 248, 248, 0.3) 0px 30px 40px -30px,
+              rgba(255, 255, 255, 0.35) 0px -2px 6px 0px inset;
 }
 
-.output_content > * {
+/* Ensure minimum content width for children */
+.artist-info > * {
   min-width: fit-content;
 }
 
-.output_content_block {
+/* ========== Text Info Sections ========== */
+
+.info-section {
   display: flex;
   flex-direction: column;
 }
 
-.output_content_block > * {
+.info-section > * {
   margin-bottom: 16px;
 }
 
-.output_content_block > p {
+.info-section > p {
   line-height: 25px;
 }
 
-.output_lists {
-  /* background-color: grey; */
+/* ========== Relations Section ========== */
+
+.relations-wrapper {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -92,6 +114,7 @@
   list-style-position: inside;
 }
 
+/* Nested relations (dates per location) */
 .output_content_block ul ul {
   margin-top: 5px;
   margin-left: 25px;
@@ -99,25 +122,24 @@
   list-style-position: inside;
 }
 
-.style {
+.relations-list {
   max-height: fit-content;
   padding: 10px 10px;
   margin-right: 50px;
 }
 
-.output_content > .output_content_block span {
+/* Underline style for section headings */
+.artist-info > .output_content_block span,
+.relations-wrapper span {
   padding-right: 30px;
   padding-bottom: 6px;
   border-bottom: 4px solid #04aa6d;
   max-width: fit-content;
 }
 
-.output_lists span {
-  padding-bottom: 6px;
-  border-bottom: 4px solid #04aa6d;
-}
+/* ========== Glassmorphism ========== */
 
-.glass {
+.glass-effect {
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.1),
@@ -130,7 +152,9 @@
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
-.toggle-label {
+/* ========== Close Button ========== */
+
+.close-button {
   max-width: fit-content;
   padding: 10px;
   background-color: #f44336;
@@ -149,6 +173,39 @@
   z-index: 1;
 }
 
+/* Icon next to Close text */
 .icon {
   margin-right: 7px;
+}
+
+/* ========== Responsive Design ========== */
+
+@media (max-width: 600px) {
+  .artist-details-container {
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-left: 10px;
+  }
+
+  .artist-image-box {
+    margin: 0;
+  }
+
+  .artist-info {
+    width: 100%;
+  }
+
+  .info-section {
+    margin: 0;
+  }
+
+  .close-button {
+    font-size: 0.8rem;
+  }
+
+  .icon {
+    margin-right: 2px;
+    width: 23px;
+  }
 }

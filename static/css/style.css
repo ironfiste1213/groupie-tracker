@@ -1,141 +1,131 @@
+/* === RESET DEFAULT STYLES === */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    width: 100%;
-    height: 100vh;
-    background-color: rgb(39, 43, 51);
-    font-family: "Roboto", sans-serif;
-  }
-  
-  .container {
-    width: 100%;
-    height: 50vh;
-    margin-bottom: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-  }
-  
-  .back {
-    background-image: url("/static/image/chris-zhang-uGh-hHVPRYI-unsplash.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 50%;
-  }
-  
-  h1 {
-    line-height: 30px;
-    text-align: center;
-    font-size: clamp(2rem, 5vw + 1rem, 5rem);
-    color: rgb(0, 0, 0);
-  }
-  
-  .view {
-    width: 100%;
-    padding-bottom: 5vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    flex: 1;
-  }
-  
-  .block {
-    display: flex;
-    flex-direction: column;
-    width: 20rem;
-    margin: 20px;
-    overflow: hidden;
-    background-color: rgb(60, 62, 68);
-    color: white;
-    border: 0.5mm solid black;
-    border-radius: 10px;
-    box-shadow: rgba(255, 255, 255, 0.25) 0px 50px 100px -20px,
-      rgba(255, 0, 0, 0.3) 0px 30px 40px -30px,
-      rgba(255, 255, 255, 0.35) 0px -2px 6px 0px inset;
-  }
-  
-  .image {
-    height: 50%;
-    width: 100%;
-  }
-  
-  .content {
-    color: #04aa6d;
-    width: 100%;
-    height: 100%;
-    padding: 0.75rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-  }
-  
-  .content > * {
-    min-width: fit-content;
-  }
-  
-  .status {
-    color: rgb(187, 180, 180);
-    font-size: 1.4rem;
-  }
-  
-  .ss p {
-    font-size: 1.3rem;
-  }
-  
-  .ss {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-  
-  .text_style {
-    font-size: clamp(1rem, 4vw + 1rem, 2rem);
-  }
-  
-  .button {
-    padding: 0.7rem;
-    padding-inline: 1.5rem;
-    margin: auto;
-    margin-bottom: 15px;
-    border-radius: 10px;
-  }
-  .button_style{
-    cursor: pointer;
-    font-size: 1.1rem;
-    background-color: #04aa6d;
-    color: rgb(255, 255, 255);
-    border: none;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  @media (max-width: 600px) {
-    .about {
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        padding-left: 10px;
-      }
-      .output_image {
-        margin: 0;
-      }
-      .output_content {
-        width: 100%;
-      }
-      .output_content_block {
-        margin: 0;
-      }
-      .toggle-label {
-        font-size: 0.8rem;
-      }
-      .icon {
-        margin-right: 2px;
-        width: 23px;
-      }
-  }
+/* === BODY STYLING === */
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(39, 43, 51);
+  font-family: "Roboto", sans-serif;
+}
+
+/* === HEADER SECTION === */
+.header-container {
+  width: 100%;
+  height: 50vh;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+/* === BACKGROUND IMAGE STYLING === */
+.page-background {
+  background-image: url("/static/image/chris-zhang-uGh-hHVPRYI-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 50%;
+}
+
+/* === MAIN HEADING === */
+h1 {
+  line-height: 30px;
+  text-align: center;
+  font-size: clamp(2rem, 5vw + 1rem, 5rem); /* Responsive size */
+  color: rgb(0, 0, 0);
+}
+
+/* === ARTIST CARD CONTAINER === */
+.artist-list {
+  width: 100%;
+  padding-bottom: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+/* === INDIVIDUAL ARTIST CARD === */
+.artist-card {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  margin: 20px;
+  overflow: hidden;
+  background-color: rgb(60, 62, 68);
+  color: white;
+  border: 0.5mm solid black;
+  border-radius: 10px;
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 50px 100px -20px,
+              rgba(255, 0, 0, 0.3) 0px 30px 40px -30px,
+              rgba(255, 255, 255, 0.35) 0px -2px 6px 0px inset;
+}
+
+/* === ARTIST IMAGE INSIDE CARD === */
+.artist-image {
+  height: 50%;
+  width: 100%;
+}
+
+/* === DETAILS SECTION INSIDE CARD === */
+.artist-details {
+  color: #04aa6d;
+  width: 100%;
+  height: 100%;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/* === ENSURE CHILDREN IN DETAILS HAVE FIT WIDTH === */
+.artist-details > * {
+  min-width: fit-content;
+}
+
+/* === LABEL FOR DETAILS (E.G. "Creation Date") === */
+.detail-label {
+  color: rgb(187, 180, 180);
+  font-size: 1.4rem;
+}
+
+/* === INDIVIDUAL INFO SECTIONS === */
+.detail-section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.detail-section p {
+  font-size: 1.3rem;
+}
+
+/* === ARTIST NAME STYLING === */
+.artist-name {
+  font-size: clamp(1rem, 4vw + 1rem, 2rem); /* Responsive text */
+}
+
+/* === BUTTON CONTAINER (FOR ALIGNMENT/STYLING) === */
+.button {
+  padding: 0.7rem;
+  padding-inline: 1.5rem;
+  margin: auto;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+/* === BUTTON STYLING === */
+.button-style {
+  cursor: pointer;
+  font-size: 1.1rem;
+  background-color: #04aa6d;
+  color: rgb(255, 255, 255);
+  border: none;
+}
