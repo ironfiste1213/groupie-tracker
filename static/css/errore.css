@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background: #212121;
+}
+
+h1 {
+    color: white;
+    margin: 20px;
+    font-size: 90px;
+}
+
+p {
+    color: white;
+    margin: 20px;
+    font-size: 50px;
+}
